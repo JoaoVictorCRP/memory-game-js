@@ -1,0 +1,74 @@
+/*html {
+    background: blue
+}
+
+.menu {
+    max-width: 640px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 50px
+    text-align: center;
+}
+button {
+    margin: 5px;
+    color: #fff;
+}
+
+.btn-easy {
+    background: rgb(2, 177, 2);
+}
+.btn-medium {
+    background: rgb(201, 201, 7);
+}
+.btn-hard {
+    background: red;
+}*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: pink;
+}
+
+
+.game-table{
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+.memory-card{
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);   /* Calculating WxH, considering margin*/
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+}
+
+.memory-card :active {    /* Card effect when clicked */
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    border: 2px solid blueviolet;
+    background: palegoldenrod;
+}
+
+img {
+    width: 100px;
+}
