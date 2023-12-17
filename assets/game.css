@@ -43,7 +43,8 @@ body {
     height: 500px;
     margin: auto;
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
+    perspective: 1000px; /* 3D effect utility*/
 }
 
 .memory-card{
@@ -52,11 +53,17 @@ body {
     margin: 5px;
     position: relative;
     transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform.5s;
 }
 
 .memory-card :active {    /* Card effect when clicked */
     transform: scale(.97);
     transition: transform .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
 }
 
 .front-face, .back-face {
@@ -67,6 +74,11 @@ body {
     border-radius: 5px;
     border: 2px solid blueviolet;
     background: palegoldenrod;
+    backface-visibility: hidden; /* Every html img's original backface is itself turned into 180º...*/
+}
+
+.front-face{
+    transform: rotateY(180deg);
 }
 
 img {
