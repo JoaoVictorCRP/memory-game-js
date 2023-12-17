@@ -1,11 +1,22 @@
 const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
+let lockBoard = false; // In case its not a match, the board must be locked. (So the card finishes unfliping)
 let firstCard, secondCard;
+
+(function shuffleCards(){
+    cards.forEach(card => {
+        let randomPosition = Math.floor((Math.random() * 12));
+        card.style.order = randomPosition; // Using order property from flexBox;
+    });
+}) (); // IIFE
 
 function flipCard() { // Context: "this" will refer to the clicked card's element
     
-    this.classList.toggle('flip'); // toggle 'flip' in this' class
+    if(lockBoard) return;
+    if(this === firstCard) return; // Preventing double-click on the same card
+
+    this.classList.toggle('flip'); // toggle "flip" in this' class
 
     if(!hasFlippedCard){
         // First card selected
@@ -34,10 +45,19 @@ function disableCards(first, second){
 }
 
 function unflipCards(first, second) {
+    lockBoard = true;
+
     setTimeout(() => {
         first.classList.remove('flip');
         second.classList.remove('flip');
+        
+        resetBoard();
     }, 1000) // TimeOut intented to see which was the wrong card
+}
+
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
