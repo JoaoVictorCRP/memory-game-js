@@ -1,0 +1,28 @@
+.menu {
+    width: 460px;
+    height: 460px;
+    display: flex;
+    background-color: purple;
+    padding: 20px;
+    margin: 50px auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    max-width: 300px;
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    background: rgb(188, 39, 176);
+    color: #fff;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
