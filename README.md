@@ -1,3 +1,3 @@
-#Memory Game for JS and CSS practicing
+# Memory Game for JS and CSS practicing
 
-Fruit memory game made with Vanilla JavaScript.
+A delicious fruit game, made with Vanilla JavaScript. 🍎
